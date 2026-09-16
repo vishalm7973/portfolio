@@ -50,10 +50,41 @@ function useReveal() {
   }, []);
 }
 
+function useTypedName(text, ms = 90) {
+  const [value, setValue] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setValue(text);
+      setDone(true);
+      return undefined;
+    }
+
+    setValue("");
+    setDone(false);
+    let index = 0;
+    const id = window.setInterval(() => {
+      index += 1;
+      setValue(text.slice(0, index));
+      if (index >= text.length) {
+        window.clearInterval(id);
+        setDone(true);
+      }
+    }, ms);
+
+    return () => window.clearInterval(id);
+  }, [text, ms]);
+
+  return { value, done };
+}
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [selected, setSelected] = useState(null);
+  const typedName = useTypedName(profile.name);
   useReveal();
 
   useEffect(() => {
@@ -88,7 +119,7 @@ export default function App() {
       </a>
 
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-        <a className="logo" href="#top">
+        <a className="logo" href="#top" aria-label="Vishal Maurya">
           VM
         </a>
         <nav className="nav-desktop" aria-label="Primary">
@@ -151,11 +182,13 @@ export default function App() {
               {profile.role}
             </p>
             <h1 className="hero-name">
-              <span className="reveal-hero" style={{ "--d": "80ms" }}>
-                Vishal
-              </span>{" "}
-              <span className="reveal-hero" style={{ "--d": "160ms" }}>
-                Maurya
+              <span className="sr-only">{profile.name}</span>
+              <span className="hero-name-ghost" aria-hidden="true">
+                {profile.name}
+              </span>
+              <span className="hero-typed" aria-hidden="true">
+                {typedName.value}
+                <span className="hero-caret" />
               </span>
             </h1>
             <p className="hero-lede reveal-hero" style={{ "--d": "240ms" }}>
@@ -190,7 +223,11 @@ export default function App() {
             </div>
           </div>
           <div className="hero-photo reveal-hero" style={{ "--d": "200ms" }}>
-            <img src={profile.photo} alt="Portrait of Vishal Maurya" />
+            <img
+              src={profile.photo}
+              alt="Portrait of Vishal Maurya"
+              referrerPolicy="no-referrer"
+            />
           </div>
         </section>
 

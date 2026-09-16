@@ -1,18 +1,21 @@
 :root {
-  --bg: #101310;
-  --bg-elevated: #171b18;
-  --line: rgba(232, 228, 218, 0.1);
-  --text: #eceae4;
-  --muted: #9aa094;
-  --accent: #c9a66b;
-  --accent-soft: rgba(201, 166, 107, 0.14);
-  --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  --bg: #11151c;
+  --bg-elevated: #181d26;
+  --surface: #161b23;
+  --line: rgba(176, 190, 208, 0.12);
+  --text: #e8ebf0;
+  --text-soft: #c5cbd4;
+  --muted: #8d97a6;
+  --accent: #8ea4bc;
+  --accent-soft: rgba(142, 164, 188, 0.16);
+  --on-accent: #11151c;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
   --serif: "Instrument Serif", "Times New Roman", serif;
   --sans: "Outfit", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", "Consolas", monospace;
   --max: none;
   --page-pad: clamp(24px, 7vw, 120px);
-  --skill-accent: #3dba9a;
+  --skill-accent: #7ea8b8;
 }
 
 *,
@@ -37,7 +40,7 @@ body {
   font-size: 17px;
   line-height: 1.65;
   background:
-    radial-gradient(900px 420px at 8% -10%, rgba(201, 166, 107, 0.07), transparent 55%),
+    radial-gradient(900px 420px at 8% -10%, rgba(142, 164, 188, 0.09), transparent 55%),
     var(--bg);
   letter-spacing: 0.01em;
 }
@@ -105,7 +108,7 @@ p {
   z-index: 20;
   padding: 8px 12px;
   background: var(--accent);
-  color: #141714;
+  color: var(--on-accent);
 }
 
 .skip-link:focus {
@@ -122,7 +125,7 @@ p {
   width: 100%;
   padding: 18px var(--page-pad);
   border-bottom: 1px solid transparent;
-  background: rgba(16, 19, 16, 0.78);
+  background: rgba(17, 21, 28, 0.82);
   backdrop-filter: blur(14px);
 }
 
@@ -131,8 +134,17 @@ p {
 }
 
 .logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid rgba(142, 164, 188, 0.35);
+  border-radius: 50%;
+  background: var(--surface);
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--accent);
 }
@@ -222,12 +234,34 @@ main {
 }
 
 .hero-name {
+  position: relative;
   margin: 14px 0 24px;
   font-family: var(--serif);
   font-size: clamp(48px, 8vw, 92px);
   font-weight: 400;
   line-height: 0.92;
   letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.hero-name-ghost {
+  visibility: hidden;
+  display: block;
+}
+
+.hero-typed {
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+
+.hero-caret {
+  display: inline-block;
+  width: 3px;
+  height: 0.78em;
+  margin-left: 6px;
+  background: var(--accent);
+  vertical-align: -0.04em;
+  animation: caret-blink 0.9s steps(1, end) infinite;
 }
 
 .hero-lede,
@@ -239,7 +273,7 @@ main {
 
 .hero-lede {
   max-width: 58rem;
-  color: #d3d0c8;
+  color: var(--text-soft);
   font-size: 18px;
   font-weight: 300;
 }
@@ -260,9 +294,9 @@ main {
   padding: 6px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #141816;
+  background: var(--surface);
   font-size: 13px;
-  color: #d3d0c8;
+  color: var(--text-soft);
 }
 
 .hero-meta svg {
@@ -288,7 +322,7 @@ main {
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
-  border: 1px solid rgba(201, 166, 107, 0.35);
+  border: 1px solid rgba(142, 164, 188, 0.35);
   background: var(--bg-elevated);
 }
 
@@ -320,7 +354,7 @@ main {
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #16140f;
+  color: var(--on-accent);
 }
 
 .btn-primary:hover {
@@ -383,14 +417,14 @@ main {
   padding: 6px 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #141816;
+  background: var(--surface);
   font-size: 13px;
-  color: #d3d0c8;
+  color: var(--text-soft);
   overflow-wrap: anywhere;
 }
 
 .about-contact a:hover {
-  border-color: rgba(201, 166, 107, 0.45);
+  border-color: rgba(142, 164, 188, 0.45);
   color: var(--text);
 }
 
@@ -411,7 +445,7 @@ main {
   padding: 22px 18px 18px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: #141816;
+  background: var(--surface);
 }
 
 .skill-card h3 {
@@ -440,7 +474,7 @@ main {
   padding: 8px 12px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #101310;
+  background: var(--bg);
   font-size: 14px;
   overflow-wrap: anywhere;
 }
@@ -535,7 +569,7 @@ main {
 
 .role ul {
   padding-left: 18px;
-  color: #d3d0c8;
+  color: var(--text-soft);
 }
 
 .role li + li {
@@ -564,13 +598,13 @@ main {
 
 .project-card:hover,
 .project-card:focus-visible {
-  border-color: rgba(201, 166, 107, 0.45);
+  border-color: rgba(142, 164, 188, 0.45);
 }
 
 .project-thumb {
   height: 176px;
   overflow: hidden;
-  background: #121512;
+  background: var(--surface);
 }
 
 .project-thumb img {
@@ -588,7 +622,7 @@ main {
   font-family: var(--serif);
   font-size: 42px;
   color: var(--accent);
-  background: #141816;
+  background: var(--surface);
 }
 
 .project-copy {
@@ -608,7 +642,7 @@ main {
 }
 
 .project-copy p {
-  color: #d3d0c8;
+  color: var(--text-soft);
   font-size: 14px;
   line-height: 1.55;
   display: -webkit-box;
@@ -630,7 +664,7 @@ main {
   padding: 6px 12px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #101310;
+  background: var(--bg);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -645,7 +679,7 @@ main {
   display: grid;
   place-items: center;
   padding: 24px var(--page-pad);
-  background: rgba(8, 10, 8, 0.72);
+  background: rgba(8, 11, 16, 0.72);
   overflow: auto;
 }
 
@@ -669,7 +703,7 @@ main {
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background: rgba(16, 19, 16, 0.78);
+  background: rgba(17, 21, 28, 0.82);
   color: var(--text);
 }
 
@@ -683,7 +717,7 @@ main {
   max-height: 280px;
   object-fit: cover;
   object-position: top center;
-  background: #121512;
+  background: var(--surface);
 }
 
 .project-modal-body {
@@ -705,13 +739,13 @@ main {
 }
 
 .project-modal-lede {
-  color: #d3d0c8;
+  color: var(--text-soft);
 }
 
 .project-modal-details {
   margin: 18px 0 0;
   padding-left: 18px;
-  color: #d3d0c8;
+  color: var(--text-soft);
 }
 
 .project-modal-details li + li {
@@ -760,8 +794,10 @@ main {
   animation-delay: var(--d, 0ms);
 }
 
-.hero-name .reveal-hero {
-  display: inline-block;
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 [data-reveal] {
@@ -860,7 +896,7 @@ main {
     width: min(320px, 86vw);
     height: 100vh;
     padding: 88px 28px 32px;
-    background: #141814;
+    background: var(--bg-elevated);
     border-left: 1px solid var(--line);
     transform: translateX(100%);
     transition: transform 280ms ease;
@@ -899,5 +935,10 @@ main {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .hero-caret {
+    animation: none;
+    opacity: 0;
   }
 }

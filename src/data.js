@@ -7,11 +7,12 @@ export const profile = {
   phoneHref: "tel:+917973274863",
   github: "https://github.com/vishalm7973",
   linkedin: "https://www.linkedin.com/in/vishalm7973",
-  photo: "./profile.png",
+  photo:
+    "https://lh3.googleusercontent.com/d/1fIj-Y2W1BS3I_FcR8t2hjnNMFLNiY2eP=w1000",
   resume:
     "https://drive.google.com/file/d/1z0Rz7bEcbCQ9k9UDeDrEGH-uQ-3G5ely/view",
   summary:
-    "Backend Engineer with 2.5+ years of experience building production microservices using Node.js, NestJS, TypeScript, and RabbitMQ. I design and ship REST APIs, asynchronous workflows, and data services across hiring infrastructure, travel platforms, and media delivery — owning systems from architecture through deployment.",
+    "Backend Engineer with 2.5+ years of experience building production microservices using Node.js, NestJS, TypeScript, and RabbitMQ. I design and ship REST APIs, asynchronous workflows, and data services across hiring infrastructure, travel platforms, and media delivery, owning systems from architecture through deployment.",
   focus: [
     "Node.js · NestJS · TypeScript",
     "Microservices & REST APIs",
