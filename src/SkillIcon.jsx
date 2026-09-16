@@ -1,19 +1,26 @@
+import { Code } from "lucide-react";
 import { FaAws, FaGithub, FaLinkedin } from "react-icons/fa";
 import {
   SiApachekafka,
   SiDocker,
   SiExpress,
+  SiFfmpeg,
   SiGit,
   SiGithub,
   SiJavascript,
+  SiJsonwebtokens,
+  SiMailgun,
   SiMongodb,
   SiMongoose,
   SiNestjs,
   SiNodedotjs,
   SiPostgresql,
+  SiPostman,
   SiRabbitmq,
   SiReact,
   SiRedis,
+  SiSocketdotio,
+  SiStripe,
   SiTypeorm,
   SiTypescript,
 } from "react-icons/si";
@@ -38,11 +45,44 @@ const ICONS = {
   mongoose: { Icon: SiMongoose, color: "#880000" },
   aws: { Icon: FaAws, color: "#FF9900" },
   azure: { Icon: VscAzure, color: "#0078D4" },
+  stripe: { Icon: SiStripe, color: "#635BFF" },
+  socketio: { Icon: SiSocketdotio, color: "#E8E6E1" },
+  ffmpeg: { Icon: SiFfmpeg, color: "#007808" },
+  mailgun: { Icon: SiMailgun, color: "#F06B66" },
+  jwt: { Icon: SiJsonwebtokens, color: "#FB015B" },
+  rest: { Icon: SiPostman, color: "#FF6C37" },
+  micro: { Icon: Code, color: "#818cf8" },
+};
+
+const TECH_ALIASES = {
+  "Node.js": "node",
+  NestJS: "nest",
+  TypeORM: "typeorm",
+  RabbitMQ: "rabbitmq",
+  PostgreSQL: "postgres",
+  MongoDB: "mongo",
+  AWS: "aws",
+  "AWS S3": "aws",
+  Stripe: "stripe",
+  "Socket.IO": "socketio",
+  "Express.js": "express",
+  Express: "express",
+  Docker: "docker",
+  CloudFront: "aws",
+  FFmpeg: "ffmpeg",
+  Mailgun: "mailgun",
+  JWT: "jwt",
+  "REST APIs": "rest",
+  Microservices: "micro",
 };
 
 export function SocialIcon({ name }) {
   const Icon = name === "linkedin" ? FaLinkedin : FaGithub;
   return <Icon aria-hidden="true" />;
+}
+
+export function TechIcon({ name }) {
+  return <SkillIcon name={TECH_ALIASES[name]} />;
 }
 
 export default function SkillIcon({ name }) {

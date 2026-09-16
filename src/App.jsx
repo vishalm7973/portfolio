@@ -21,13 +21,13 @@ import {
   projects,
   skills,
 } from "./data";
-import SkillIcon, { SocialIcon } from "./SkillIcon";
+import SkillIcon, { SocialIcon, TechIcon } from "./SkillIcon";
 
 const NAV = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
+  { id: "projects", label: "Projects" },
 ];
 
 function useReveal() {
@@ -195,15 +195,15 @@ export default function App() {
               {profile.summary}
             </p>
             <ul className="hero-meta reveal-hero" style={{ "--d": "320ms" }}>
-              <li>
+              <li className="meta-location">
                 <MapPin aria-hidden="true" />
                 <span>{profile.location}</span>
               </li>
-              <li>
+              <li className="meta-experience">
                 <Briefcase aria-hidden="true" />
                 <span>2.5+ years</span>
               </li>
-              <li>
+              <li className="meta-stack">
                 <Layers aria-hidden="true" />
                 <span>Node.js · NestJS · Microservices</span>
               </li>
@@ -241,19 +241,29 @@ export default function App() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
               <div className="about-contact">
-                <a href={`mailto:${profile.email}`}>
+                <a className="contact-mail" href={`mailto:${profile.email}`}>
                   <Mail aria-hidden="true" />
                   <span>{profile.email}</span>
                 </a>
-                <a href={profile.phoneHref}>
+                <a className="contact-phone" href={profile.phoneHref}>
                   <Phone aria-hidden="true" />
                   <span>{profile.phone}</span>
                 </a>
-                <a href={profile.github} target="_blank" rel="noreferrer">
+                <a
+                  className="contact-github"
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <SocialIcon name="github" />
                   <span>GitHub</span>
                 </a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                <a
+                  className="contact-linkedin"
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <SocialIcon name="linkedin" />
                   <span>LinkedIn</span>
                 </a>
@@ -331,10 +341,16 @@ export default function App() {
                       <p className="experience-tagline">{job.tagline}</p>
                     </div>
                   </div>
-                  <p className="experience-location">
-                    <MapPin aria-hidden="true" />
-                    <span>{job.location}</span>
-                  </p>
+                  <div className="experience-meta">
+                    <p className="experience-location">
+                      <MapPin aria-hidden="true" />
+                      <span>{job.location}</span>
+                    </p>
+                    <p className="experience-duration">
+                      <CalendarDays aria-hidden="true" />
+                      <span>{job.period}</span>
+                    </p>
+                  </div>
                 </header>
                 <div className="experience-roles">
                   {job.roles.map((role) => (
@@ -354,7 +370,10 @@ export default function App() {
                         </ul>
                         <ul className="role-stack">
                           {role.stack.map((tech) => (
-                            <li key={tech}>{tech}</li>
+                            <li key={tech}>
+                              <TechIcon name={tech} />
+                              {tech}
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -366,7 +385,7 @@ export default function App() {
           </div>
         </section>
 
-        <section id="work" className="section" data-reveal>
+        <section id="projects" className="section" data-reveal>
           <div className="section-label">
             <span>04</span> Key Projects
           </div>
@@ -408,10 +427,17 @@ export default function App() {
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} Vishal Maurya</p>
         <div className="socials">
-          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a
+            className="contact-github"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
             <SocialIcon name="github" />
           </a>
           <a
+            className="contact-linkedin"
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
@@ -460,7 +486,10 @@ export default function App() {
               </ul>
               <ul className="stack">
                 {selected.stack.map((tech) => (
-                  <li key={tech}>{tech}</li>
+                  <li key={tech}>
+                    <TechIcon name={tech} />
+                    {tech}
+                  </li>
                 ))}
               </ul>
               {(selected.live || selected.github) && (
