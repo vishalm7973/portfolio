@@ -278,6 +278,12 @@ main {
   font-weight: 300;
 }
 
+.lede-emphasis {
+  font-size: 1.08em;
+  font-weight: 500;
+  color: var(--text);
+}
+
 .hero-meta {
   display: flex;
   flex-wrap: wrap;

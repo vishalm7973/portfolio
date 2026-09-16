@@ -192,7 +192,16 @@ export default function App() {
               </span>
             </h1>
             <p className="hero-lede reveal-hero" style={{ "--d": "240ms" }}>
-              {profile.summary}
+              {profile.summary.split("Backend Engineer").map((part, index) =>
+                index === 0 ? (
+                  <span key="lede-start">{part}</span>
+                ) : (
+                  <span key="lede-rest">
+                    <strong className="lede-emphasis">Backend Engineer</strong>
+                    {part}
+                  </span>
+                )
+              )}
             </p>
             <ul className="hero-meta reveal-hero" style={{ "--d": "320ms" }}>
               <li className="meta-location">
