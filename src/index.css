@@ -1,21 +1,22 @@
 :root {
-  --bg: #11151c;
-  --bg-elevated: #181d26;
-  --surface: #161b23;
-  --line: rgba(176, 190, 208, 0.12);
-  --text: #e8ebf0;
-  --text-soft: #c5cbd4;
-  --muted: #8d97a6;
-  --accent: #8ea4bc;
-  --accent-soft: rgba(142, 164, 188, 0.16);
-  --on-accent: #11151c;
+  --bg: #10151d;
+  --bg-elevated: #171d28;
+  --surface: #151b26;
+  --line: rgba(140, 190, 230, 0.14);
+  --text: #eaf0f7;
+  --text-soft: #c5d3e2;
+  --muted: #8aa0b5;
+  --accent: #5eb0ea;
+  --accent-soft: rgba(94, 176, 234, 0.14);
+  --on-accent: #0c1218;
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
   --serif: "Syne", "Segoe UI", sans-serif;
   --sans: "Outfit", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", "Consolas", monospace;
   --max: none;
   --page-pad: clamp(24px, 7vw, 120px);
-  --skill-accent: #7ea8b8;
+  --skill-accent: #4ecfbf;
+  --tint-border: rgba(94, 176, 234, 0.32);
 }
 
 *,
@@ -40,7 +41,8 @@ body {
   font-size: 17px;
   line-height: 1.65;
   background:
-    radial-gradient(900px 420px at 8% -10%, rgba(142, 164, 188, 0.09), transparent 55%),
+    radial-gradient(900px 420px at 8% -10%, rgba(94, 176, 234, 0.16), transparent 55%),
+    radial-gradient(760px 380px at 92% 8%, rgba(78, 207, 191, 0.1), transparent 50%),
     var(--bg);
   letter-spacing: 0.01em;
 }
@@ -125,7 +127,7 @@ p {
   width: 100%;
   padding: 18px var(--page-pad);
   border-bottom: 1px solid transparent;
-  background: rgba(17, 21, 28, 0.82);
+  background: rgba(16, 21, 29, 0.84);
   backdrop-filter: blur(14px);
 }
 
@@ -139,7 +141,7 @@ p {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  border: 1px solid rgba(142, 164, 188, 0.35);
+  border: 1px solid var(--tint-border);
   border-radius: 50%;
   background: var(--surface);
   font-family: var(--serif);
@@ -290,9 +292,9 @@ main {
   align-items: center;
   gap: 7px;
   padding: 6px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--tint-border);
   border-radius: 8px;
-  background: var(--surface);
+  background: var(--accent-soft);
   font-size: 13px;
   color: var(--text-soft);
 }
@@ -320,7 +322,7 @@ main {
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
-  border: 1px solid rgba(142, 164, 188, 0.35);
+  border: 1px solid var(--tint-border);
   background: var(--bg-elevated);
 }
 
@@ -412,16 +414,16 @@ main {
   gap: 7px;
   max-width: 100%;
   padding: 6px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--tint-border);
   border-radius: 8px;
-  background: var(--surface);
+  background: var(--accent-soft);
   font-size: 13px;
   color: var(--text-soft);
   overflow-wrap: anywhere;
 }
 
 .about-contact a:hover {
-  border-color: rgba(142, 164, 188, 0.45);
+  border-color: var(--tint-border);
   color: var(--text);
 }
 
@@ -440,9 +442,44 @@ main {
 
 .skill-card {
   padding: 22px 18px 18px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(78, 207, 191, 0.2);
   border-radius: 16px;
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(78, 207, 191, 0.08), transparent 46%),
+    var(--surface);
+}
+
+.skill-card:nth-child(2) {
+  border-color: rgba(94, 176, 234, 0.22);
+  background:
+    linear-gradient(180deg, rgba(94, 176, 234, 0.09), transparent 46%),
+    var(--surface);
+}
+
+.skill-card:nth-child(2) h3 {
+  color: var(--accent);
+}
+
+.skill-card:nth-child(3) {
+  border-color: rgba(167, 139, 250, 0.22);
+  background:
+    linear-gradient(180deg, rgba(167, 139, 250, 0.08), transparent 46%),
+    var(--surface);
+}
+
+.skill-card:nth-child(3) h3 {
+  color: #b8a6f5;
+}
+
+.skill-card:nth-child(4) {
+  border-color: rgba(245, 186, 92, 0.22);
+  background:
+    linear-gradient(180deg, rgba(245, 186, 92, 0.08), transparent 46%),
+    var(--surface);
+}
+
+.skill-card:nth-child(4) h3 {
+  color: #f0c27a;
 }
 
 .skill-card h3 {
@@ -528,9 +565,11 @@ main {
 
 .experience-card {
   padding: 22px 24px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--tint-border);
   border-radius: 16px;
-  background: var(--bg-elevated);
+  background:
+    linear-gradient(180deg, rgba(94, 176, 234, 0.07), transparent 30%),
+    var(--bg-elevated);
 }
 
 .experience-head {
@@ -677,13 +716,13 @@ main {
 
 .role-stack li {
   padding: 5px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--tint-border);
   border-radius: 8px;
-  background: var(--bg);
+  background: var(--accent-soft);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.02em;
-  color: var(--text-soft);
+  color: var(--text);
 }
 
 .project-list {
@@ -699,16 +738,18 @@ main {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--tint-border);
   border-radius: 16px;
-  background: var(--bg-elevated);
+  background:
+    linear-gradient(180deg, rgba(94, 176, 234, 0.06), transparent 38%),
+    var(--bg-elevated);
   color: inherit;
   text-align: left;
 }
 
 .project-card:hover,
 .project-card:focus-visible {
-  border-color: rgba(142, 164, 188, 0.45);
+  border-color: var(--tint-border);
 }
 
 .project-thumb {
@@ -774,9 +815,9 @@ main {
 
 .stack li {
   padding: 6px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--bg);
+  border: 1px solid var(--tint-border);
+  border-radius: 8px;
+  background: var(--accent-soft);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -800,8 +841,10 @@ main {
   width: min(760px, 100%);
   max-height: min(88vh, 900px);
   overflow: auto;
-  border: 1px solid var(--line);
-  background: var(--bg-elevated);
+  border: 1px solid var(--tint-border);
+  background:
+    linear-gradient(180deg, rgba(94, 176, 234, 0.08), transparent 36%),
+    var(--bg-elevated);
   box-shadow: var(--shadow);
 }
 
@@ -815,7 +858,7 @@ main {
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background: rgba(17, 21, 28, 0.82);
+  background: rgba(16, 21, 29, 0.84);
   color: var(--text);
 }
 
