@@ -10,7 +10,7 @@
   --accent-soft: rgba(142, 164, 188, 0.16);
   --on-accent: #11151c;
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
-  --serif: "Instrument Serif", "Times New Roman", serif;
+  --serif: "Syne", "Segoe UI", sans-serif;
   --sans: "Outfit", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", "Consolas", monospace;
   --max: none;
@@ -218,8 +218,6 @@ main {
 
 .eyebrow,
 .section-label,
-.timeline-meta p,
-.role header p,
 .project-head span,
 .muted {
   font-family: var(--mono);
@@ -238,8 +236,8 @@ main {
   margin: 14px 0 24px;
   font-family: var(--serif);
   font-size: clamp(48px, 8vw, 92px);
-  font-weight: 400;
-  line-height: 0.92;
+  font-weight: 700;
+  line-height: 0.98;
   letter-spacing: -0.03em;
   text-transform: uppercase;
 }
@@ -393,7 +391,6 @@ main {
 }
 
 .about-grid > *,
-.timeline-body,
 .project-copy {
   min-width: 0;
 }
@@ -524,56 +521,169 @@ main {
   flex-shrink: 0;
 }
 
-.timeline {
-  list-style: none;
-  padding: 0;
+.experience-list {
   display: grid;
-  gap: 56px;
+  gap: 18px;
 }
 
-.timeline-item {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 32px;
+.experience-card {
+  padding: 22px 24px 10px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-elevated);
 }
 
-.timeline-meta h3,
-.role h4,
-.project-copy h3 {
+.experience-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  padding-bottom: 18px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.experience-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--on-accent);
   font-family: var(--serif);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
-.timeline-meta h3 {
-  margin-bottom: 8px;
-  font-size: 28px;
+.experience-identity h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.experience-tagline {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.experience-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.experience-location svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+.role {
+  padding: 18px 0;
 }
 
 .role + .role {
-  margin-top: 28px;
-  padding-top: 28px;
   border-top: 1px solid var(--line);
 }
 
 .role header {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: 8px 16px;
+  margin-bottom: 12px;
 }
 
 .role h4 {
-  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.role h4 svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.role header p {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.role-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+  gap: 20px 28px;
+  align-items: start;
 }
 
 .role ul {
-  padding-left: 18px;
+  list-style: none;
+  padding: 0;
   color: var(--text-soft);
+  font-size: 14.5px;
+  line-height: 1.65;
 }
 
-.role li + li {
-  margin-top: 10px;
+.role-points li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.role-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.role-points li + li {
+  margin-top: 8px;
+}
+
+.role-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+}
+
+.role-stack li {
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
 }
 
 .project-list {
@@ -638,7 +748,9 @@ main {
 }
 
 .project-copy h3 {
+  font-family: var(--serif);
   font-size: 22px;
+  font-weight: 700;
 }
 
 .project-copy p {
@@ -831,7 +943,6 @@ main {
 
 @media (max-width: 900px) {
   .about-grid,
-  .timeline-item,
   .hero {
     grid-template-columns: 1fr;
   }
@@ -840,6 +951,10 @@ main {
     justify-self: start;
     width: 180px;
     order: -1;
+  }
+
+  .role-body {
+    grid-template-columns: 1fr;
   }
 
   .header-mail {

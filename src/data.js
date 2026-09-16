@@ -70,11 +70,25 @@ export const skills = [
 export const experience = [
   {
     company: "Digimantra Labs",
+    initials: "DL",
+    tagline: "IT services",
+    location: "Onsite / India",
     period: "Jan 2024 — Aug 2026",
     roles: [
       {
-        title: "Backend Developer",
+        title: "Web Developer (Backend Engineer)",
         dates: "Jan 2025 — Aug 2026",
+        stack: [
+          "Node.js",
+          "NestJS",
+          "TypeORM",
+          "RabbitMQ",
+          "PostgreSQL",
+          "MongoDB",
+          "AWS",
+          "Stripe",
+          "Socket.IO",
+        ],
         points: [
           "Owned backend architecture for VeriHire, an AI hiring platform — 4 NestJS microservices with RabbitMQ, PostgreSQL, and TypeORM, exposing 130+ REST APIs for AI-powered hiring workflows.",
           "Optimized async processing with RabbitMQ, indexed PostgreSQL queries, batched AI evaluations, and 5-job concurrent workers with retries and stuck-job recovery.",
@@ -84,8 +98,9 @@ export const experience = [
         ],
       },
       {
-        title: "Associate Backend Developer",
+        title: "Associate Web Developer (Backend Engineer)",
         dates: "Jan 2024 — Dec 2024",
+        stack: ["Node.js", "Express.js", "MongoDB", "AWS S3", "CloudFront", "FFmpeg"],
         points: [
           "Built Neemo, a video template platform: Express.js + MongoDB REST APIs for users, categories, templates, and admin, with JWT authentication.",
           "Engineered chunked AWS S3 uploads, CloudFront signed media delivery, FFmpeg thumbnail generation, and automated video-template packaging for large-file uploads.",
@@ -95,11 +110,15 @@ export const experience = [
   },
   {
     company: "XenonStack Pvt Ltd",
+    initials: "XS",
+    tagline: "Cloud & Product Engineering Services",
+    location: "Onsite / India",
     period: "Jul 2023 — Oct 2023",
     roles: [
       {
         title: "Associate Software Engineer Trainee",
         dates: "Jul 2023 — Oct 2023",
+        stack: ["Node.js", "Docker", "REST APIs", "JWT", "Microservices"],
         points: [
           "Built production-grade REST APIs with JWT authentication and authorization across services.",
           "Containerized services with Docker to standardize deployment across development and production.",

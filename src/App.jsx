@@ -320,31 +320,50 @@ export default function App() {
           <div className="section-label">
             <span>03</span> Experience
           </div>
-          <ol className="timeline">
+          <div className="experience-list">
             {experience.map((job) => (
-              <li key={job.company} className="timeline-item">
-                <div className="timeline-meta">
-                  <h3>{job.company}</h3>
-                  <p>{job.period}</p>
-                </div>
-                <div className="timeline-body">
+              <article key={job.company} className="experience-card">
+                <header className="experience-head">
+                  <div className="experience-identity">
+                    <span className="experience-avatar">{job.initials}</span>
+                    <div>
+                      <h3>{job.company}</h3>
+                      <p className="experience-tagline">{job.tagline}</p>
+                    </div>
+                  </div>
+                  <p className="experience-location">
+                    <MapPin aria-hidden="true" />
+                    <span>{job.location}</span>
+                  </p>
+                </header>
+                <div className="experience-roles">
                   {job.roles.map((role) => (
-                    <article key={role.title} className="role">
+                    <div key={role.title} className="role">
                       <header>
-                        <h4>{role.title}</h4>
+                        <h4>
+                          <Briefcase aria-hidden="true" />
+                          {role.title}
+                        </h4>
                         <p>{role.dates}</p>
                       </header>
-                      <ul>
-                        {role.points.map((point) => (
-                          <li key={point}>{point}</li>
-                        ))}
-                      </ul>
-                    </article>
+                      <div className="role-body">
+                        <ul className="role-points">
+                          {role.points.map((point) => (
+                            <li key={point}>{point}</li>
+                          ))}
+                        </ul>
+                        <ul className="role-stack">
+                          {role.stack.map((tech) => (
+                            <li key={tech}>{tech}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   ))}
                 </div>
-              </li>
+              </article>
             ))}
-          </ol>
+          </div>
         </section>
 
         <section id="work" className="section" data-reveal>
