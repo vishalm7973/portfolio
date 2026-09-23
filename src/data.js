@@ -129,13 +129,37 @@ export const experience = [
 ];
 
 export const projects = [
+    {
+    name: "EvilgeniusGames",
+    image: "./projects/evilgenius.png",
+    stack: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redis",
+      "Socket.IO",
+      "Stripe",
+      "Puppeteer",
+      "AWS S3",
+    ],
+    description: "A real-time multiplayer Tabletop Role-Playing Game (TTRPG) platform where players take on interactive challenges, compete on live leaderboards, communicate through chat and audio/video, and make secure payments.",
+    details: [
+      "Dual-identity auth shared across REST and Socket.IO — Cognito for registered users, locally-issued guest JWTs with token-version revocation (no blocklist needed).",
+      "On-demand playtime tracking using immutable timestamps instead of polling — eliminates drift, survives restarts, unit-tested with injected time.",
+      "Haversine distance computed inside MongoDB aggregation pipeline for geospatial game discovery and 'sort by nearest' in a single DB round trip.",
+      "Stripe Connect payouts with 70/30 revenue split, ledger-vs-Stripe balance reconciliation, and Redis-throttled background sync.",
+      "Redis distributed lock (SET NX) on book purchases with automatic duplicate-charge refund via stripe.refunds.create().",
+      "Puppeteer BrowserPool singleton for character sheet PDF generation — one Chromium instance reused across requests with idle-timeout and graceful shutdown.",
+      "Socket.IO Redis adapter with production-safety startup guard, p-queue concurrency control for notifications, and deploy-time Redis cache warmup.",
+    ],
+    live: "https://evilgeniusgames.com/",
+  },
   {
     name: "VeriHire",
-    kind: "Production",
     image: "./projects/verihire.png",
     stack: ["NestJS", "RabbitMQ", "PostgreSQL", "TypeORM", "Stripe"],
     description:
-      "AI hiring platform backend. Four NestJS microservices, 130+ REST APIs, async evaluation workers, and SaaS billing with usage quotas.",
+      "A SaaS-based AI hiring platform for conducting video and coding interviews, with automated candidate evaluation, AI-generated reports and scoring, asynchronous processing, and usage-based billing.",
     details: [
       "Owned backend architecture for an AI hiring platform — 4 NestJS microservices with RabbitMQ, PostgreSQL, and TypeORM.",
       "Exposed 130+ REST APIs covering AI-powered hiring workflows from evaluation through billing.",
@@ -146,11 +170,10 @@ export const projects = [
   },
   {
     name: "Locals Around",
-    kind: "Production",
     image: "./projects/locals-around.png",
     stack: ["Node.js", "NestJS", "MongoDB", "Socket.IO"],
     description:
-      "Travel and local-guide platform: user profiles, trip booking, reviews, social features, real-time messaging, FCM, and multi-store billing.",
+      "A full-featured travel platform connecting travelers with local guides and experiences through trip booking, social discovery, real-time messaging, reviews, push notifications, and seamless multi-store payments.",
     details: [
       "Built the backend for a travel and local-guide platform covering profiles, trip booking, reviews, social features, and admin workflows.",
       "Optimized read-heavy MongoDB work with aggregation pipelines, Mongoose .lean() queries, and targeted indexes.",
@@ -161,11 +184,10 @@ export const projects = [
   },
   {
     name: "GNDEC Sports Meet",
-    kind: "Event system",
     image: "./projects/gndec-sports-meet.png",
     stack: ["Node.js", "MongoDB", "AWS S3", "Mailgun"],
     description:
-      "REST APIs for event management, player registration, and QR attendance. Handled 1,000+ registrations in 48 hours, with S3 media and Mailgun notifications.",
+      "A sports event management platform enabling player registration, QR-based attendance, media management, and automated notifications, successfully handling 1,000+ registrations in 48 hours.",
     details: [
       "Designed REST APIs for event management, player registration, and QR-based attendance.",
       "Handled 1,000+ registrations in 48 hours without downtime.",
@@ -175,27 +197,14 @@ export const projects = [
   },
   {
     name: "Neemo",
-    kind: "Production",
     stack: ["Express.js", "MongoDB", "AWS S3", "CloudFront"],
     description:
-      "Video template platform with JWT-secured APIs, chunked S3 uploads, CloudFront signed delivery, and FFmpeg thumbnail generation.",
+      "A fun video creation platform for kids to create personalized videos using ready-made templates, upload and share their creations, and watch videos through secure, scalable content delivery.",
     details: [
       "Built Express.js and MongoDB REST APIs for users, categories, templates, and admin, with JWT authentication.",
       "Engineered chunked AWS S3 uploads and CloudFront signed media delivery for large video files.",
       "Added FFmpeg thumbnail generation and automated video-template packaging.",
     ],
-  },
-  {
-    name: "Event Ticket API",
-    kind: "Open source",
-    stack: ["Node.js", "Express", "MongoDB", "JWT"],
-    description:
-      "Event and ticket management REST API with JWT authentication — a compact example of the same API and data patterns I use in production work.",
-    details: [
-      "Built a compact event and ticket management REST API with JWT authentication.",
-      "Modeled the same API contracts and data patterns used in production work.",
-    ],
-    github: "https://github.com/vishalm7973/event-ticket-api",
   },
 ];
 
