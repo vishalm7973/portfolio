@@ -400,11 +400,18 @@ export default function App() {
           </div>
           <div className="project-list">
             {projects.map((project) => (
-              <button
-                type="button"
+              <div
+                role="button"
+                tabIndex={0}
                 className="project-card"
                 key={project.name}
                 onClick={() => setSelected(project)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setSelected(project);
+                  }
+                }}
                 aria-label={`Open ${project.name} details`}
               >
                 <div className="project-thumb">
@@ -419,15 +426,30 @@ export default function App() {
                         .slice(0, 2)}
                     </span>
                   )}
+                  {project.tag && (
+                    <span className="project-thumb-tag">{project.tag}</span>
+                  )}
                 </div>
                 <div className="project-copy">
                   <div className="project-head">
                     <h3>{project.name}</h3>
-                    <span>{project.kind}</span>
+                    {project.live && (
+                      <a
+                        className="project-live-btn"
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`Visit ${project.name} live site`}
+                      >
+                        <span>Live site</span>
+                        <ExternalLink size={11} aria-hidden="true" />
+                      </a>
+                    )}
                   </div>
                   <p>{project.description}</p>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
         </section>
@@ -478,15 +500,33 @@ export default function App() {
               <X aria-hidden="true" />
             </button>
             {selected.image && (
-              <img
-                className="project-modal-image"
-                src={selected.image}
-                alt={`${selected.name} screenshot`}
-              />
+              <div className="project-modal-media">
+                <img
+                  className="project-modal-image"
+                  src={selected.image}
+                  alt={`${selected.name} screenshot`}
+                />
+                {selected.tag && (
+                  <span className="project-thumb-tag">{selected.tag}</span>
+                )}
+              </div>
             )}
             <div className="project-modal-body">
-              <p className="project-modal-kind">{selected.kind}</p>
-              <h3 id="project-modal-title">{selected.name}</h3>
+              <div className="project-modal-head">
+                <h3 id="project-modal-title">{selected.name}</h3>
+                {selected.live && (
+                  <a
+                    className="project-live-btn"
+                    href={selected.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visit ${selected.name} live site`}
+                  >
+                    <span>Live site</span>
+                    <ExternalLink size={11} aria-hidden="true" />
+                  </a>
+                )}
+              </div>
               <p className="project-modal-lede">{selected.description}</p>
               <ul className="project-modal-details">
                 {selected.details.map((point) => (

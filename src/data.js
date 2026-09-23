@@ -129,8 +129,9 @@ export const experience = [
 ];
 
 export const projects = [
-    {
+  {
     name: "EvilgeniusGames",
+    tag: "Real-time Gaming Platform",
     image: "./projects/evilgenius.png",
     stack: [
       "Node.js",
@@ -141,6 +142,10 @@ export const projects = [
       "Stripe",
       "Puppeteer",
       "AWS S3",
+      "Aws Lambda",
+      "Aws Cognito",
+      "Aws SQS",
+      "Docker"
     ],
     description: "A real-time multiplayer Tabletop Role-Playing Game (TTRPG) platform where players take on interactive challenges, compete on live leaderboards, communicate through chat and audio/video, and make secure payments.",
     details: [
@@ -156,8 +161,9 @@ export const projects = [
   },
   {
     name: "VeriHire",
+    tag: "AI Hiring Platform",
     image: "./projects/verihire.png",
-    stack: ["NestJS", "RabbitMQ", "PostgreSQL", "TypeORM", "Stripe"],
+    stack: ["NestJS", "RabbitMQ", "PostgreSQL", "TypeORM", "Stripe", "Redis", "Azure Blob", "Docker"],
     description:
       "A SaaS-based AI hiring platform for conducting video and coding interviews, with automated candidate evaluation, AI-generated reports and scoring, asynchronous processing, and usage-based billing.",
     details: [
@@ -170,8 +176,9 @@ export const projects = [
   },
   {
     name: "Locals Around",
+    tag: "Travel & Guide Platform",
     image: "./projects/locals-around.png",
-    stack: ["Node.js", "NestJS", "MongoDB", "Socket.IO"],
+    stack: ["Node.js", "NestJS", "MongoDB", "Socket.IO", "Redis", "AWS S3", "Docker"],
     description:
       "A full-featured travel platform connecting travelers with local guides and experiences through trip booking, social discovery, real-time messaging, reviews, push notifications, and seamless multi-store payments.",
     details: [
@@ -183,9 +190,23 @@ export const projects = [
     live: "https://localsaround.com/",
   },
   {
+    name: "Neemo",
+    tag: "Video Creation Platform",
+    image: "./projects/neemo.png",
+    stack: ["Node.js", "Express.js", "MongoDB", "AWS S3", "CloudFront", "FFmpeg"],
+    description:
+      "A fun video creation platform for kids to create personalized videos using ready-made templates, upload and share their creations, and watch videos through secure, scalable content delivery.",
+    details: [
+      "Built Express.js and MongoDB REST APIs for users, categories, templates, and admin, with JWT authentication.",
+      "Engineered chunked AWS S3 uploads and CloudFront signed media delivery for large video files.",
+      "Added FFmpeg thumbnail generation and automated video-template packaging.",
+    ],
+  },
+  {
     name: "GNDEC Sports Meet",
+    tag: "Sports Event Platform",
     image: "./projects/gndec-sports-meet.png",
-    stack: ["Node.js", "MongoDB", "AWS S3", "Mailgun"],
+    stack: ["Node.js", "MongoDB", "AWS S3", "Mailgun", "Firebase FCM"],
     description:
       "A sports event management platform enabling player registration, QR-based attendance, media management, and automated notifications, successfully handling 1,000+ registrations in 48 hours.",
     details: [
@@ -194,17 +215,6 @@ export const projects = [
       "Stored event media on AWS S3 and sent Mailgun notifications for registration and updates.",
     ],
     live: "https://athleticmeet.vercel.app/",
-  },
-  {
-    name: "Neemo",
-    stack: ["Express.js", "MongoDB", "AWS S3", "CloudFront"],
-    description:
-      "A fun video creation platform for kids to create personalized videos using ready-made templates, upload and share their creations, and watch videos through secure, scalable content delivery.",
-    details: [
-      "Built Express.js and MongoDB REST APIs for users, categories, templates, and admin, with JWT authentication.",
-      "Engineered chunked AWS S3 uploads and CloudFront signed media delivery for large video files.",
-      "Added FFmpeg thumbnail generation and automated video-template packaging.",
-    ],
   },
 ];
 

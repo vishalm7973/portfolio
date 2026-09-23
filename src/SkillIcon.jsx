@@ -50,8 +50,6 @@ const ICONS = {
   ffmpeg: { Icon: SiFfmpeg, color: "#007808" },
   mailgun: { Icon: SiMailgun, color: "#F06B66" },
   jwt: { Icon: SiJsonwebtokens, color: "#FB015B" },
-  rest: { Icon: SiPostman, color: "#FF6C37" },
-  micro: { Icon: Code, color: "#818cf8" },
 };
 
 const TECH_ALIASES = {
@@ -72,7 +70,6 @@ const TECH_ALIASES = {
   FFmpeg: "ffmpeg",
   Mailgun: "mailgun",
   JWT: "jwt",
-  "REST APIs": "rest",
   Microservices: "micro",
 };
 
