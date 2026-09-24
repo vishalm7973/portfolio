@@ -5,6 +5,7 @@ import {
   SiDocker,
   SiExpress,
   SiFfmpeg,
+  SiFirebase,
   SiGit,
   SiGithub,
   SiJavascript,
@@ -16,6 +17,7 @@ import {
   SiNodedotjs,
   SiPostgresql,
   SiPostman,
+  SiPuppeteer,
   SiRabbitmq,
   SiReact,
   SiRedis,
@@ -47,9 +49,13 @@ const ICONS = {
   azure: { Icon: VscAzure, color: "#0078D4" },
   stripe: { Icon: SiStripe, color: "#635BFF" },
   socketio: { Icon: SiSocketdotio, color: "#E8E6E1" },
+  puppeteer: { Icon: SiPuppeteer, color: "#00D8A2" },
+  firebase: { Icon: SiFirebase, color: "#FFCA28" },
   ffmpeg: { Icon: SiFfmpeg, color: "#007808" },
   mailgun: { Icon: SiMailgun, color: "#F06B66" },
   jwt: { Icon: SiJsonwebtokens, color: "#FB015B" },
+  rest: { Icon: SiPostman, color: "#FF6C37" },
+  micro: { Icon: Code, color: "#818cf8" },
 };
 
 const TECH_ALIASES = {
@@ -59,17 +65,33 @@ const TECH_ALIASES = {
   RabbitMQ: "rabbitmq",
   PostgreSQL: "postgres",
   MongoDB: "mongo",
+  Redis: "redis",
   AWS: "aws",
   "AWS S3": "aws",
+  "Aws Lambda": "aws",
+  "AWS Lambda": "aws",
+  "Aws Cognito": "aws",
+  "AWS Cognito": "aws",
+  "Aws SQS": "aws",
+  "AWS SQS": "aws",
+  CloudFront: "aws",
+  Azure: "azure",
+  "Azure Blob": "azure",
+  "Azure (Blob)": "azure",
   Stripe: "stripe",
   "Socket.IO": "socketio",
   "Express.js": "express",
   Express: "express",
   Docker: "docker",
-  CloudFront: "aws",
+  Puppeteer: "puppeteer",
+  "Firebase FCM": "firebase",
+  Firebase: "firebase",
+  FCM: "firebase",
   FFmpeg: "ffmpeg",
   Mailgun: "mailgun",
   JWT: "jwt",
+  "REST APIs": "rest",
+  REST: "rest",
   Microservices: "micro",
 };
 
@@ -79,12 +101,16 @@ export function SocialIcon({ name }) {
 }
 
 export function TechIcon({ name }) {
-  return <SkillIcon name={TECH_ALIASES[name]} />;
+  const iconKey = TECH_ALIASES[name] || TECH_ALIASES[name?.trim()] || name?.toLowerCase();
+  return <SkillIcon name={iconKey} fallback={Code} />;
 }
 
-export default function SkillIcon({ name }) {
+export default function SkillIcon({ name, fallback: Fallback = null }) {
   const entry = ICONS[name];
-  if (!entry) return null;
+  if (!entry) {
+    if (Fallback) return <Fallback aria-hidden="true" />;
+    return null;
+  }
 
   const { Icon, color } = entry;
   return <Icon color={color} aria-hidden="true" />;

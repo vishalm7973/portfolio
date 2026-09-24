@@ -140,7 +140,6 @@ export const projects = [
       "Redis",
       "Socket.IO",
       "Stripe",
-      "Puppeteer",
       "AWS S3",
       "Aws Lambda",
       "Aws Cognito",
@@ -178,7 +177,7 @@ export const projects = [
     name: "Locals Around",
     tag: "Travel & Guide Platform",
     image: "./projects/locals-around.png",
-    stack: ["Node.js", "NestJS", "MongoDB", "Socket.IO", "Redis", "AWS S3", "Docker"],
+    stack: ["Node.js", "NestJS", "MongoDB", "Socket.IO", "Redis", "AWS S3", "Aws SQS", "Docker"],
     description:
       "A full-featured travel platform connecting travelers with local guides and experiences through trip booking, social discovery, real-time messaging, reviews, push notifications, and seamless multi-store payments.",
     details: [
@@ -193,7 +192,7 @@ export const projects = [
     name: "Neemo",
     tag: "Video Creation Platform",
     image: "./projects/neemo.png",
-    stack: ["Node.js", "Express.js", "MongoDB", "AWS S3", "CloudFront", "FFmpeg"],
+    stack: ["Node.js", "Express.js", "MongoDB", "AWS S3", "CloudFront", "FFmpeg", "Firebase FCM"],
     description:
       "A fun video creation platform for kids to create personalized videos using ready-made templates, upload and share their creations, and watch videos through secure, scalable content delivery.",
     details: [
