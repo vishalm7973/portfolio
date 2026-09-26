@@ -969,11 +969,34 @@ main {
   box-shadow: var(--shadow);
 }
 
+.project-modal-pin {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-elevated);
+}
+
+.project-modal-pin::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, var(--bg-elevated));
+  pointer-events: none;
+  z-index: 3;
+}
+
+.project-modal-media .project-thumb-tag {
+  z-index: 4;
+}
+
 .project-modal-close {
   position: absolute;
   top: 12px;
   right: 12px;
-  z-index: 1;
+  z-index: 4;
   display: grid;
   place-items: center;
   width: 36px;

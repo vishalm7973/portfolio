@@ -440,9 +440,9 @@ export default function App() {
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        aria-label={`Visit ${project.name} live site`}
+                        aria-label={`Visit ${project.name} live Site`}
                       >
-                        <span>Live site</span>
+                        <span>Live Site</span>
                         <ExternalLink size={11} aria-hidden="true" />
                       </a>
                     )}
@@ -491,26 +491,28 @@ export default function App() {
             aria-labelledby="project-modal-title"
             onClick={(event) => event.stopPropagation()}
           >
-            <button
-              className="project-modal-close"
-              type="button"
-              onClick={() => setSelected(null)}
-            >
-              <span className="sr-only">Close project details</span>
-              <X aria-hidden="true" />
-            </button>
-            {selected.image && (
-              <div className="project-modal-media">
-                <img
-                  className="project-modal-image"
-                  src={selected.image}
-                  alt={`${selected.name} screenshot`}
-                />
-                {selected.tag && (
-                  <span className="project-thumb-tag">{selected.tag}</span>
-                )}
-              </div>
-            )}
+            <div className="project-modal-pin">
+              <button
+                className="project-modal-close"
+                type="button"
+                onClick={() => setSelected(null)}
+              >
+                <span className="sr-only">Close project details</span>
+                <X aria-hidden="true" />
+              </button>
+              {selected.image && (
+                <div className="project-modal-media">
+                  <img
+                    className="project-modal-image"
+                    src={selected.image}
+                    alt={`${selected.name} screenshot`}
+                  />
+                  {selected.tag && (
+                    <span className="project-thumb-tag">{selected.tag}</span>
+                  )}
+                </div>
+              )}
+            </div>
             <div className="project-modal-body">
               <div className="project-modal-head">
                 <h3 id="project-modal-title">{selected.name}</h3>
@@ -522,7 +524,7 @@ export default function App() {
                     rel="noreferrer"
                     aria-label={`Visit ${selected.name} live site`}
                   >
-                    <span>Live site</span>
+                    <span>Live Site</span>
                     <ExternalLink size={11} aria-hidden="true" />
                   </a>
                 )}
@@ -541,30 +543,17 @@ export default function App() {
                   </li>
                 ))}
               </ul>
-              {(selected.live || selected.github) && (
+              {selected.github && (
                 <div className="project-modal-actions">
-                  {selected.live && (
-                    <a
-                      className="btn btn-primary"
-                      href={selected.live}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <ExternalLink aria-hidden="true" />
-                      Live site
-                    </a>
-                  )}
-                  {selected.github && (
-                    <a
-                      className="btn btn-ghost"
-                      href={selected.github}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <SocialIcon name="github" />
-                      GitHub
-                    </a>
-                  )}
+                  <a
+                    className="btn btn-ghost"
+                    href={selected.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <SocialIcon name="github" />
+                    GitHub
+                  </a>
                 </div>
               )}
             </div>

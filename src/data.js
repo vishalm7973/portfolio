@@ -76,7 +76,7 @@ export const experience = [
     period: "Jan 2024 — Aug 2026",
     roles: [
       {
-        title: "Web Developer (Backend Engineer)",
+        title: "Web Developer",
         dates: "Jan 2025 — Aug 2026",
         stack: [
           "Node.js",
@@ -98,7 +98,7 @@ export const experience = [
         ],
       },
       {
-        title: "Associate Web Developer (Backend Engineer)",
+        title: "Associate Web Developer",
         dates: "Jan 2024 — Dec 2024",
         stack: ["Node.js", "Express.js", "MongoDB", "AWS S3", "CloudFront", "FFmpeg"],
         points: [
