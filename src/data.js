@@ -200,6 +200,7 @@ export const projects = [
       "Engineered chunked AWS S3 uploads and CloudFront signed media delivery for large video files.",
       "Added FFmpeg thumbnail generation and automated video-template packaging.",
     ],
+    live: "https://play.google.com/store/apps/details?id=com.neemo.dom",
   },
   {
     name: "GNDEC Sports Meet",
