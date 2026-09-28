@@ -81,13 +81,14 @@ export const experience = [
         stack: [
           "Node.js",
           "NestJS",
-          "TypeORM",
+          "TypeScript",
           "RabbitMQ",
+          "JavaScript",
+          "Socket.IO",
           "PostgreSQL",
           "MongoDB",
           "AWS",
           "Stripe",
-          "Socket.IO",
         ],
         points: [
           "Owned backend architecture for VeriHire, an AI hiring platform — 4 NestJS microservices with RabbitMQ, PostgreSQL, and TypeORM, exposing 130+ REST APIs for AI-powered hiring workflows.",
